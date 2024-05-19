@@ -1,0 +1,62 @@
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.BloggBox {
+  padding: 10px;
+  background-color: #747bff;
+  width: 600px;
+  height: auto;
+}
+
+.Center {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Grid {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px;
+}
+
+.Titel {
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background-color: rgb(44, 44, 142);
+  color: #ffffff;
+}
+
+.NameText {
+  display: flex;
+  align-items: center;
+}
+
+.TitelText {
+  padding-left: 200px;
+  font-size: larger;
+}
+
+.BloggText {
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 10px;
+  margin-top: 0px;
+  font-size: larger;
+  background-color: rgb(44, 44, 142);
+}
+
+.CommentText {
+  display: flex;
+  align-items: center;
+  background-color: azure;
+  border-radius: 10px;
+  padding: 5px;
+}

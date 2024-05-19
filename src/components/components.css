@@ -1,0 +1,41 @@
+.MyCommentText {
+  display: flex;
+  align-items: baseline;
+  background-color: azure;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.MyBloggBox {
+  padding: 10px;
+  background-color: #747bff;
+  width: 590px;
+  height: auto;
+}
+
+.Header {
+  display: flex;
+  align-items: self-end;
+  justify-content: space-evenly;
+  flex-direction: row;
+  background-color: #243544;
+}
+
+.Space {
+  width: 1000px;
+}
+
+.orange {
+  padding: 15px;
+  font-size: 20px;
+  color: orangered;
+}
+
+.orange:hover {
+  color: yellow;
+}
+
+.YourName {
+  font-size: larger;
+  color: azure;
+}
