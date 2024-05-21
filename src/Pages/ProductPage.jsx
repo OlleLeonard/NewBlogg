@@ -2,6 +2,7 @@ import { useContext } from "react";
 import PageLayout from "../components/PageLayout";
 import { ProductContext } from "../Context/PorductContext";
 import KnappKomment from "../components/KnappKomment";
+import NyttInläggKnapp from "../NyttInlägg/NyttInläggKnapp";
 
 const ProductPage = () => {
   const { post } = useContext(ProductContext);
@@ -13,6 +14,7 @@ const ProductPage = () => {
 
   return (
     <PageLayout title="Product" headline="Product Page">
+      <NyttInläggKnapp />
       <div className="Center">
         <div className="Grid">
           <div className="BloggBox">

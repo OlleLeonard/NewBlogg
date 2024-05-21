@@ -8,21 +8,21 @@ function SkrivOUt() {
   const [input, setInput] = useState("");
   const [showInput, setShowInput] = useState(true);
 
-  const addTodo = (todo) => {
-    if (todo.trim() !== "") {
-      const newTodo = {
+  const addComment = (comment) => {
+    if (comment.trim() !== "") {
+      const newComment = {
         id: Math.random(),
-        todo: todo,
+        comment: comment,
       };
 
-      setList([...list, newTodo]);
+      setList([...list, newComment]);
       setInput("");
       setShowInput(false);
     }
   };
 
-  const deleteTodo = (id) => {
-    const newList = list.filter((todo) => todo.id !== id);
+  const deleteComment = (id) => {
+    const newList = list.filter((comment) => comment.id !== id);
     setList(newList);
   };
 
@@ -35,7 +35,7 @@ function SkrivOUt() {
           className="writeForm"
           onSubmit={(e) => {
             e.preventDefault();
-            addTodo(input);
+            addComment(input);
           }}
         >
           <input
@@ -49,14 +49,14 @@ function SkrivOUt() {
         </form>
       )}
       <ul className="MyBloggBox">
-        {list.map((todo) => (
-          <div key={todo.id}>
+        {list.map((comment) => (
+          <div key={comment.id}>
             <div className="MyCommentText">
               <b>{userName}:</b>
-              {todo.todo}
+              {comment.comment}
             </div>
             <br></br>
-            <button onClick={() => deleteTodo(todo.id)}>Ta bort</button>
+            <button onClick={() => deleteComment(comment.id)}>Ta bort</button>
           </div>
         ))}
       </ul>
