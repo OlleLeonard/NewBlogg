@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import "./components.css";
+import AuthDetails from "../components/AuthDetails";
 
 const Header = () => {
   const { userName, isLoggedIn, login, logout } = useContext(UserContext);
@@ -9,9 +10,9 @@ const Header = () => {
   return (
     <div className="Header">
       <div className="Space">
-        <p className="YourName">{userName}</p>
+        <h2>Loggo</h2>
       </div>
-
+      <p className="orange">{userName}</p>
       <nav className="orange">
         <Link to="/" className="orange">
           Home
@@ -22,15 +23,7 @@ const Header = () => {
         <Link className="orange" to="/products">
           Blogg
         </Link>
-
-        {isLoggedIn ? (
-          <>
-            <p className="orange">{userName}</p>
-            <button onClick={logout}>Logga ut</button>
-          </>
-        ) : (
-          <button onClick={login}>Logga in</button>
-        )}
+        <AuthDetails />
       </nav>
     </div>
   );

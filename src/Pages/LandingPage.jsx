@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
 import PageLayout from "../components/PageLayout";
 import SignIn from "../components/SignIn";
-import AuthDetails from "../components/AuthDetails";
+import SignUp from "../components/SignUp";
 
 const LandingPage = () => {
   const { userName, setUserName } = useContext(UserContext);
 
   return (
     <PageLayout title="Home" headline={`Attention pretended ${userName}!`}>
+      <SignUp />
       <p>
         Performed suspicion in certainty so frankness by attention pretended.
         Newspaper or in tolerably education enjoyment. Extremity excellent
@@ -17,7 +18,6 @@ const LandingPage = () => {
         make fond at on rent.
       </p>
       <SignIn></SignIn>
-      <AuthDetails />
     </PageLayout>
   );
 };

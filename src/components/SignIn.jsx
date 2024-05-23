@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Link } from "react-router-dom";
 import "./components.css";
 
 const SignIn = () => {
@@ -34,16 +33,14 @@ const SignIn = () => {
           <br></br>
           <p>Lösenord:</p>
           <input
-            type="text"
+            type="password"
             placeholder="enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <br></br>
           <button type="submit">Log In</button>
-          <Link to="/SignUpPage" className="orange">
-            <button>Create Account</button>
-          </Link>
+          <button>Create</button>
         </form>
       </div>
     </div>

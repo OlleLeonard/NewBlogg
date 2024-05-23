@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { auth } from "../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import useInput from "../hooks/useInput";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
-import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -44,9 +44,7 @@ const SignUp = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <Link to="/" className="orange">
-          <button type="submit">Sign Upp</button>
-        </Link>
+        <button type="submit">Sign Upp</button>
       </form>
     </div>
   );

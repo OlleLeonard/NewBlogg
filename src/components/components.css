@@ -69,3 +69,20 @@ input {
   margin: 5px;
   border-radius: 3px;
 }
+
+#nameScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 195px;
+  width: 650px;
+  height: 460px;
+  background-color: white;
+  position: absolute;
+  border-style: solid;
+  border-color: gray;
+  border-radius: 50px;
+  border-width: 25px;
+  display: none;
+}
