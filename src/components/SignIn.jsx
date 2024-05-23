@@ -1,32 +1,52 @@
-import useInput from "../hooks/useInput";
-import { useContext } from "react";
-import { UserContext } from "../Context/UserContext";
+import React, { useState } from "react";
+import { auth } from "../Firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { Link } from "react-router-dom";
+import "./components.css";
 
 const SignIn = () => {
-  const { setUserName } = useContext(UserContext);
-  const nameInput = useInput();
-  const emailInput = useInput();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  console.log(nameInput.value, emailInput.value);
-
-  const handleSubmit = (e) => {
+  const signIn = (e) => {
     e.preventDefault();
-
-    setUserName(nameInput.value);
-
-    nameInput.reset();
-    emailInput.reset();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
+        console.log(userCredentials);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Name</label>
-      <input type="text" {...nameInput}></input>
-
-      <label>Email</label>
-      <input type="Email" {...emailInput}></input>
-      <button type="submit">Submit</button>
-    </form>
+    <div className="SignInBody">
+      <div className="SignInContainer">
+        <form onSubmit={signIn}>
+          <h1>Sign In</h1>
+          <p>Email:</p>
+          <input
+            type="email"
+            placeholder="enter mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br></br>
+          <p>Lösenord:</p>
+          <input
+            type="text"
+            placeholder="enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br></br>
+          <button type="submit">Log In</button>
+          <Link to="/SignUpPage" className="orange">
+            <button>Create Account</button>
+          </Link>
+        </form>
+      </div>
+    </div>
   );
 };
 

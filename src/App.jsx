@@ -8,6 +8,7 @@ import { UserContext } from "./Context/UserContext";
 import PageLayout from "./components/PageLayout";
 import ProductPage from "./Pages/ProductPage";
 import { ProductProvider } from "./Context/PorductContext";
+import SignUpPage from "../src/components/SignUp";
 
 const App = () => {
   const { isLoggedIn } = useContext(UserContext);
@@ -22,6 +23,7 @@ const App = () => {
               <Route path="/" element={<LandingPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/products" element={<ProductPage />} />
+              <Route path="/SignUpPage" element={<SignUpPage />} />
             </Routes>
           </>
         ) : (
