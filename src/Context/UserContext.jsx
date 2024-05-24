@@ -1,27 +1,12 @@
-import React, { createContext, useState, useEffect } from "react"; // Lägg till denna rad
-import { onAuthStateChanged } from "firebase/auth"; // Importera onAuthStateChanged från firebase/auth
-import { auth } from "../Firebase"; // Importera auth från Firebase-konfigurationen
+import { createContext, useState } from "react";
 import lejon from "../Pictures/lejon.jpg";
 
 export const UserContext = createContext();
 
-export const UserProvider = ({ children }) => {
+export const UserProvider = (props) => {
   const [userName, setUserName] = useState("John");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsLoggedIn(true);
-        setUserName(user.displayName || "John");
-      } else {
-        setIsLoggedIn(false);
-        setUserName("John");
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
+  const IsIsloggedIn = localStorage.getItem("isLoggedIn");
+  const [isLoggedIn, setIsLoggedIn] = useState(IsIsloggedIn);
 
   const login = () => {
     setIsLoggedIn(true);
@@ -43,6 +28,8 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={useInApp}>{children}</UserContext.Provider>
+    <UserContext.Provider value={useInApp}>
+      {props.children}
+    </UserContext.Provider>
   );
 };

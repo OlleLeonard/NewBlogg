@@ -3,7 +3,6 @@ import { UserContext } from "../Context/UserContext";
 import PageLayout from "../components/PageLayout";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
-import { auth } from "../Firebase";
 
 const LandingPage = () => {
   const { userName } = useContext(UserContext);

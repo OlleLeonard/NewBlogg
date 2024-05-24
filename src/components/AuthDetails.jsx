@@ -15,7 +15,7 @@ const AuthDetails = () => {
     });
 
     return () => {
-      listen();
+      listen(); // Unsubscribe from the listener when the component unmounts
     };
   }, []);
 
