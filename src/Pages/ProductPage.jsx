@@ -13,7 +13,7 @@ const ProductPage = () => {
   const FredPost = post.find((p) => p.name === "Fred");
 
   return (
-    <PageLayout title="Product" headline="Product Page">
+    <PageLayout title="Product">
       <NyttInläggKnapp />
       <div className="Center">
         <div className="Grid">

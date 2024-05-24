@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./components.css";
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
+import LionAndName from "../components/LionAndName";
 
 function SkrivOUt() {
   const [list, setList] = useState([]);
@@ -39,7 +40,6 @@ function SkrivOUt() {
           }}
         >
           <input
-            className="writeForumText"
             placeholder="Skriv kommentar"
             type="text"
             value={input}
@@ -48,12 +48,11 @@ function SkrivOUt() {
           <button type="submit">Dela</button>
         </form>
       )}
-      <ul className="MyBloggBox">
+      <ul>
         {list.map((comment) => (
           <div key={comment.id}>
             <div className="MyCommentText">
-              <b>{userName}:</b>
-              {comment.comment}
+              <LionAndName />:{comment.comment}
             </div>
             <br></br>
             <button onClick={() => deleteComment(comment.id)}>Ta bort</button>

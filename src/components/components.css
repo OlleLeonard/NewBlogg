@@ -9,11 +9,12 @@
 .MyBloggBox {
   padding: 10px;
   background-color: #747bff;
-  width: 590px;
+  width: 600px;
   height: auto;
 }
 
 .Header {
+  padding: 10px;
   display: flex;
   align-items: self-end;
   justify-content: space-evenly;
@@ -26,9 +27,23 @@
 }
 
 .orange {
+  border-radius: 10px;
   padding: 15px;
   font-size: 20px;
   color: orangered;
+  background-color: #182c3e;
+}
+
+.white {
+  color: aliceblue;
+  font-size: larger;
+}
+
+.writeForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .orange:hover {
@@ -40,13 +55,6 @@
   color: azure;
 }
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .SignInBody {
   display: flex;
   align-items: center;
@@ -54,8 +62,23 @@ body {
   flex-direction: column;
 }
 .SignInContainer {
+  border-radius: 10px;
+  border-style: solid;
   width: 400px;
-  height: 300px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+  background-color: #747bff;
+}
+
+.SignInContainerUp {
+  border-radius: 10px;
+  border-style: solid;
+  width: 400px;
+  height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,4 +108,20 @@ input {
   border-radius: 50px;
   border-width: 25px;
   display: none;
+}
+
+.Lion {
+  display: flex;
+  flex-direction: row;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.Loggo {
+  height: 80px;
+}
+
+.Loggan {
+  height: 70px;
+  width: 70px;
 }

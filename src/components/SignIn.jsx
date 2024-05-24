@@ -3,7 +3,7 @@ import { auth } from "../Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import "./components.css";
 
-const SignIn = () => {
+const SignIn = ({ onCreateClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,7 +40,9 @@ const SignIn = () => {
           />
           <br></br>
           <button type="submit">Log In</button>
-          <button>Create</button>
+          <button type="button" onClick={onCreateClick}>
+            Create
+          </button>
         </form>
       </div>
     </div>

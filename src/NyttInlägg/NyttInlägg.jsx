@@ -1,20 +1,34 @@
 import React, { useState } from "react";
 import "./NyttInläggStyle.css";
+import { UserContext } from "../Context/UserContext";
+import { useContext } from "react";
+import LionAndName from "../components/LionAndName";
 
 const NyttInlägg = () => {
   const [list, setList] = useState([]);
   const [input, setInput] = useState("");
   const [titleInput, setTitleInput] = useState("");
   const [showInput, setShowInput] = useState(true);
+  const [editId, setEditId] = useState(null);
+  const { userName } = useContext(UserContext);
 
-  const addInlägg = (inlägg) => {
+  const addOrEditInlägg = (title, inlägg) => {
     if (inlägg.trim() !== "") {
-      const newInlägg = {
-        id: Math.random(),
-        inlägg: inlägg,
-      };
-
-      setList([...list, newInlägg]);
+      if (editId) {
+        setList(
+          list.map((item) =>
+            item.id === editId ? { ...item, title, inlägg } : item
+          )
+        );
+        setEditId(null);
+      } else {
+        const newInlägg = {
+          id: Math.random(),
+          title,
+          inlägg,
+        };
+        setList([...list, newInlägg]);
+      }
       setInput("");
       setTitleInput("");
       setShowInput(false);
@@ -26,6 +40,14 @@ const NyttInlägg = () => {
     setList(newList);
   };
 
+  const editInlägg = (id) => {
+    const inlägg = list.find((inlägg) => inlägg.id === id);
+    setTitleInput(inlägg.title);
+    setInput(inlägg.inlägg);
+    setShowInput(true);
+    setEditId(id);
+  };
+
   return (
     <div className="write">
       {showInput && (
@@ -33,7 +55,7 @@ const NyttInlägg = () => {
           className="writeForm"
           onSubmit={(e) => {
             e.preventDefault();
-            addInlägg(titleInput, input);
+            addOrEditInlägg(titleInput, input);
           }}
         >
           <input
@@ -50,19 +72,20 @@ const NyttInlägg = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          <button type="submit">Dela</button>
+          <button type="submit">{editId ? "Spara" : "Dela"}</button>
         </form>
       )}
-      <ul className="kommentar">
+      <ul className="MyBloggBox">
         {list.map((inlägg) => (
           <div key={inlägg.id}>
-            <div className="Rubrik">
-              <strong>{inlägg.title}</strong> {}
+            <div className="Titel">
+              <LionAndName />
+              <p className="TitelText">{inlägg.title}</p>
             </div>
 
-            <br />
             <div className="BloggText">{inlägg.inlägg}</div>
-            <br />
+
+            <button onClick={() => editInlägg(inlägg.id)}>Redigera</button>
             <button onClick={() => deleteInlägg(inlägg.id)}>Ta bort</button>
           </div>
         ))}

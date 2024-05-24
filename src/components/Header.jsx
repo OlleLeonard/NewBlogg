@@ -1,30 +1,28 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { UserContext } from "../Context/UserContext";
 import "./components.css";
 import AuthDetails from "../components/AuthDetails";
+import LionAndName from "./LionAndName";
+
+import bild from "../Pictures/Loggo.jpg";
 
 const Header = () => {
-  const { userName, isLoggedIn, login, logout } = useContext(UserContext);
-
   return (
     <div className="Header">
-      <div className="Space">
-        <h2>Loggo</h2>
+      <div className="Loggo">
+        <img className="Loggan" src={bild} alt="Loggo" />
       </div>
-      <p className="orange">{userName}</p>
+
       <nav className="orange">
         <Link to="/" className="orange">
-          Home
+          Sign In
         </Link>
-        <Link className="orange" to="/about">
-          About
-        </Link>
+
         <Link className="orange" to="/products">
           Blogg
         </Link>
-        <AuthDetails />
       </nav>
+      <LionAndName />
+      <AuthDetails />
     </div>
   );
 };

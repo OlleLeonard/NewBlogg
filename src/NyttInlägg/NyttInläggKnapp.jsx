@@ -10,7 +10,7 @@ const NyttKnapp = () => {
   };
 
   return (
-    <div className="Center">
+    <div className="NyCenter">
       <div>
         <button onClick={handleClick}>Nytt Inlägg</button>
         {isClicked ? <NyttInlägg /> : null}
