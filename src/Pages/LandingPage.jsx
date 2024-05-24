@@ -13,7 +13,7 @@ const LandingPage = () => {
   };
 
   const handleSignUpClose = () => {
-    setShowSignUp(true);
+    setShowSignUp(false);
   };
 
   return (
