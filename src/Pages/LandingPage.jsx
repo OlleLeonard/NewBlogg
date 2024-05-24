@@ -20,7 +20,7 @@ const LandingPage = () => {
     <PageLayout title="Home" headline={`Hello ${userName}!`}>
       <div className="Landing">
         {showSignUp ? (
-          <SignUp onClose={handleSignUpClose} />
+          <SignUp onClose={handleCreateClick} />
         ) : (
           <SignIn onCreateClick={handleCreateClick} />
         )}
