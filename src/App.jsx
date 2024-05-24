@@ -1,33 +1,37 @@
-import Header from "./components/Header";
-
+import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
-import { UserProvider } from "./Context/UserContext";
-import { useContext } from "react";
-import { UserContext } from "./Context/UserContext";
+import { UserProvider, UserContext } from "./Context/UserContext";
 import PageLayout from "./components/PageLayout";
 import ProductPage from "./Pages/ProductPage";
-import { ProductProvider } from "./Context/PorductContext";
+
+import Header from "./components/Header";
 
 const App = () => {
+  return (
+    <UserProvider>
+      <BrowserRouter>
+        <Header />
+        <AppRoutes />
+      </BrowserRouter>
+    </UserProvider>
+  );
+};
+
+const AppRoutes = () => {
   const { isLoggedIn } = useContext(UserContext);
 
   return (
-    <ProductProvider>
-      <BrowserRouter>
-        <Header />
-        {isLoggedIn ? (
-          <>
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/products" element={<ProductPage />} />
-            </Routes>
-          </>
-        ) : (
-          <PageLayout>Please log in</PageLayout>
-        )}
-      </BrowserRouter>
-    </ProductProvider>
+    <Routes>
+      {isLoggedIn ? (
+        <>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/products" element={<ProductPage />} />
+        </>
+      ) : (
+        <Route path="*" element={<PageLayout>Please log in</PageLayout>} />
+      )}
+    </Routes>
   );
 };
 
