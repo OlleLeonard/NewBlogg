@@ -9,7 +9,7 @@ const LandingPage = () => {
   const [showSignUp, setShowSignUp] = useState(true);
 
   const handleCreateClick = () => {
-    setShowSignUp(true);
+    setShowSignUp(false);
   };
 
   const handleSignUpClose = () => {
