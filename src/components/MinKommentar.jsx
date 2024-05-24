@@ -48,7 +48,7 @@ function SkrivOUt() {
           <button type="submit">Dela</button>
         </form>
       )}
-      <ul>
+      <ul className="MyBloggBox">
         {list.map((comment) => (
           <div key={comment.id}>
             <div className="MyCommentText">

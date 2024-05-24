@@ -4,7 +4,7 @@ import lejon from "../Pictures/lejon.jpg";
 export const UserContext = createContext();
 
 export const UserProvider = (props) => {
-  const [userName, setUserName] = useState("John Doe");
+  const [userName, setUserName] = useState("John");
   const IsIsloggedIn = localStorage.getItem("isLoggedIn");
   const [isLoggedIn, setIsLoggedIn] = useState(IsIsloggedIn);
 
