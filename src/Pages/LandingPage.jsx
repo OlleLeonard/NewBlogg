@@ -1,15 +1,15 @@
 import React, { useContext, useState } from "react";
-import { UserContext } from "../Context/UserContext";
+import { AuthContext } from "../Context/AuthContext"; // Anta att du har en AuthContext för autentisering
 import PageLayout from "../components/PageLayout";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 
 const LandingPage = () => {
-  const { userName } = useContext(UserContext);
-  const [showSignUp, setShowSignUp] = useState(true);
+  const { user, logout } = useContext(AuthContext);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   const handleCreateClick = () => {
-    setShowSignUp(false);
+    setShowSignUp(true);
   };
 
   const handleSignUpClose = () => {
@@ -17,10 +17,15 @@ const LandingPage = () => {
   };
 
   return (
-    <PageLayout title="Home" headline={`Hello ${userName}!`}>
+    <PageLayout
+      title="Home"
+      headline={`Hello ${user ? user.userName : "Guest"}!`}
+    >
       <div className="Landing">
-        {showSignUp ? (
-          <SignUp onClose={handleCreateClick} />
+        {user ? (
+          <button onClick={logout}>Logout</button> // Om användaren är inloggad, visa en knapp för utloggning
+        ) : showSignUp ? (
+          <SignUp onClose={handleSignUpClose} />
         ) : (
           <SignIn onCreateClick={handleCreateClick} />
         )}
