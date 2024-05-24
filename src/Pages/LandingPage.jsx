@@ -6,14 +6,14 @@ import SignUp from "../components/SignUp";
 
 const LandingPage = () => {
   const { userName } = useContext(UserContext);
-  const [showSignUp, setShowSignUp] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(true);
 
   const handleCreateClick = () => {
     setShowSignUp(true);
   };
 
   const handleSignUpClose = () => {
-    setShowSignUp(false);
+    setShowSignUp(true);
   };
 
   return (
