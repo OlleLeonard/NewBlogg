@@ -2,12 +2,11 @@ import Header from "./components/Header";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
-
 import { useContext } from "react";
 import { UserContext } from "./Context/UserContext";
 import PageLayout from "./components/PageLayout";
 import ProductPage from "./Pages/ProductPage";
-import { ProductProvider } from "./Context/PorductContext";
+import { ProductProvider } from "./Context/ProductContext";
 
 const App = () => {
   const { isLoggedIn } = useContext(UserContext);
