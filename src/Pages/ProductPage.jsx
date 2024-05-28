@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import PageLayout from "../components/PageLayout";
-import { ProductContext } from "../Context/ProductContext";
+import { ProductContext } from "../Context/PorductContext";
 import KnappKomment from "../components/KnappKomment";
 import NyttInläggKnapp from "../NyttInlägg/NyttInläggKnapp";
 
@@ -174,3 +174,10 @@ const ProductPage = () => {
 };
 
 export default ProductPage;
+
+/*
+<p className="Text">
+{post.text}
+{post.comments.map((comment) => comment.text)}
+</p>
+*/
