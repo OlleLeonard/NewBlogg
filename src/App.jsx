@@ -16,16 +16,13 @@ const App = () => {
     <ProductProvider>
       <BrowserRouter>
         <Header />
-        {isLoggedIn ? (
-          <>
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/products" element={<ProductPage />} />
-            </Routes>
-          </>
-        ) : (
-          <PageLayout>Please log in</PageLayout>
-        )}
+
+        <>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/products" element={<ProductPage />} />
+          </Routes>
+        </>
       </BrowserRouter>
     </ProductProvider>
   );

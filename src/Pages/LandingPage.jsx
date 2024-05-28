@@ -18,6 +18,7 @@ const LandingPage = () => {
 
   return (
     <PageLayout title="Home" headline={`Hello ${userName}!`}>
+      <p>Hej</p>
       <div className="Landing">
         {showSignUp ? (
           <SignUp onClose={handleSignUpClose} />
