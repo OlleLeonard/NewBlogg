@@ -13,11 +13,11 @@ const Header = () => {
 
       <nav className="orange">
         <Link to="/" className="orange">
-          Sign In
+          Blogg
         </Link>
 
         <Link className="orange" to="/products">
-          Blogg
+          Sign In
         </Link>
       </nav>
       <AuthDetails />

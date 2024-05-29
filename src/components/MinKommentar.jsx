@@ -1,7 +1,5 @@
 import { useState } from "react";
 import "./components.css";
-import { UserContext } from "../Context/UserContext";
-import { useContext } from "react";
 import AuthName from "../components/AuthName";
 
 function SkrivOUt() {
@@ -26,8 +24,6 @@ function SkrivOUt() {
     const newList = list.filter((comment) => comment.id !== id);
     setList(newList);
   };
-
-  const { userName } = useContext(UserContext);
 
   return (
     <div className="write">

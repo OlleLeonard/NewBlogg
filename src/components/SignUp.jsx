@@ -2,20 +2,17 @@ import React, { useState } from "react";
 import { auth } from "../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import useInput from "../hooks/useInput";
-import { useContext } from "react";
-import { UserContext } from "../Context/UserContext";
 
 const SignUp = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setUserName } = useContext(UserContext);
+
   const nameInput = useInput();
 
   console.log(nameInput.value);
 
   const signUp = (e) => {
     e.preventDefault();
-    setUserName(nameInput.value);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         console.log(userCredentials);
@@ -31,9 +28,6 @@ const SignUp = ({ onClose }) => {
       <div className="SignInContainerUp">
         <form onSubmit={signUp}>
           <h1>Create account</h1>
-          <p>Username</p>
-          <input type="text" {...nameInput}></input>
-          <br></br>
           <p>email</p>
           <input
             type="email"

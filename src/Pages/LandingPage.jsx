@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import PageLayout from "../components/PageLayout";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
+import AuthName from "../components/AuthName";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase";
 
 const LandingPage = () => {
   const [showSignUp, setShowSignUp] = useState(false);
+  const [authUser, setAuthUser] = useState(null);
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
