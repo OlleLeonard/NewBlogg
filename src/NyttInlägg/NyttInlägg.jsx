@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./NyttInläggStyle.css";
-import { UserContext } from "../Context/UserContext";
-import { useContext } from "react";
-import LionAndName from "../components/LionAndName";
+import AuthName from "../components/AuthName";
 
 const NyttInlägg = () => {
   const [list, setList] = useState([]);
@@ -10,7 +8,6 @@ const NyttInlägg = () => {
   const [titleInput, setTitleInput] = useState("");
   const [showInput, setShowInput] = useState(true);
   const [editId, setEditId] = useState(null);
-  const { userName } = useContext(UserContext);
 
   const addOrEditInlägg = (title, inlägg) => {
     if (inlägg.trim() !== "") {
@@ -79,7 +76,7 @@ const NyttInlägg = () => {
         {list.map((inlägg) => (
           <div key={inlägg.id}>
             <div className="Titel">
-              <LionAndName />
+              <AuthName />
               <p className="TitelText">{inlägg.title}</p>
             </div>
 

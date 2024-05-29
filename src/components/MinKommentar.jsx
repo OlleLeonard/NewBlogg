@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./components.css";
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
-import LionAndName from "../components/LionAndName";
+import AuthName from "../components/AuthName";
 
 function SkrivOUt() {
   const [list, setList] = useState([]);
@@ -52,7 +52,7 @@ function SkrivOUt() {
         {list.map((comment) => (
           <div key={comment.id}>
             <div className="MyCommentText">
-              <LionAndName />:{comment.comment}
+              <AuthName />:{comment.comment}
             </div>
             <br></br>
             <button onClick={() => deleteComment(comment.id)}>Ta bort</button>

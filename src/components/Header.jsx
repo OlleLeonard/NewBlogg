@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import "./components.css";
 import AuthDetails from "../components/AuthDetails";
-import LionAndName from "./LionAndName";
 
 import bild from "../Pictures/Loggo.jpg";
 
@@ -21,7 +20,6 @@ const Header = () => {
           Blogg
         </Link>
       </nav>
-      <LionAndName />
       <AuthDetails />
     </div>
   );

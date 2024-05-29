@@ -1,12 +1,27 @@
-import React, { useContext, useState } from "react";
-import { UserContext } from "../Context/UserContext";
+import React, { useState, useEffect } from "react";
+
 import PageLayout from "../components/PageLayout";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../Firebase";
 
 const LandingPage = () => {
-  const { userName } = useContext(UserContext);
   const [showSignUp, setShowSignUp] = useState(false);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
 
   const handleCreateClick = () => {
     setShowSignUp(true);
@@ -17,8 +32,7 @@ const LandingPage = () => {
   };
 
   return (
-    <PageLayout title="Home" headline={`Hello ${userName}!`}>
-      <p>Hej</p>
+    <PageLayout>
       <div className="Landing">
         {showSignUp ? (
           <SignUp onClose={handleSignUpClose} />
